@@ -8,6 +8,8 @@ def main(input_file)
       create_file(line, line_args[1], line_args[2])
     when "modify"
       modify_file(line, line_args[1], line_args[2])
+    when "delete"
+      delete_file(line, line_args[1])
     end
   end
 end
@@ -18,4 +20,8 @@ end
 
 def modify_file(command, file, added_text)
   `echo #{added_text} >> #{file}`
+end
+
+def delete_file(command, path)
+  `rm #{path}`
 end
