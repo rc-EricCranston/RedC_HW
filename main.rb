@@ -58,6 +58,11 @@ def modify_file(command, activity, file_path, added_text)
   end
 end
 
-def delete_file(command, activity, path)
-  `rm #{path}`
+def delete_file(command, activity, file_path)
+  # Delete the file, rescue if file doesn't exist
+  begin
+    File.delete(file_path)
+  rescue Errno::ENOENT => e
+    puts "Error: #{e.message}"
+  end
 end
