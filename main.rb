@@ -38,7 +38,13 @@ def main(input_file)
 end
 
 def create_file(line, activity, path, file_name)
-  `mkdir -p #{path} && touch #{path}#{file_name}`
+  # Make the directory if it doesn't exist
+  Dir.mkdir(path) unless Dir.exist?(path)
+  
+  # Make the file if it doesn't exist
+  File.open(path+file_name, 'a+') do |file|
+    file.write()
+  end
 end
 
 def modify_file(command, activity, file, added_text)
