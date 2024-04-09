@@ -47,8 +47,15 @@ def create_file(line, activity, path, file_name)
   end
 end
 
-def modify_file(command, activity, file, added_text)
-  `echo #{added_text} >> #{file}`
+def modify_file(command, activity, file_path, added_text)
+  # Add text to end of file, rescue if file doesn't exist
+  begin
+    File.open(file_path, 'r+') do |file|
+      file.write(added_text)
+    end
+  rescue Errno::ENOENT => e
+    puts "Error: #{e.message}"
+  end
 end
 
 def delete_file(command, activity, path)
