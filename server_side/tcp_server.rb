@@ -5,11 +5,11 @@ port = 3000
 
 # Create a server
 server = TCPServer.new(port)
-
 puts "Server is listening on port #{port}"
 
 # File name counter
 file_num = 1
+
 # Accept incoming connections
 loop do
   client = server.accept
@@ -32,9 +32,11 @@ loop do
           file.write(chunk)
         end
       end
-      file_num += 1
+      
       # Send confirmation to client
-      c.puts "File received."
+      c.puts "File received and saved as file_#{file_num}.txt."
+      
+      file_num += 1
     rescue Errno::ENOENT => e
       # Send error to client
       c.puts "Error: #{e.message}"
