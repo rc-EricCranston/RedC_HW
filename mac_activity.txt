@@ -1,0 +1,11 @@
+create_file,./new_dir1/,file1.txt
+create_file,./new_dir1/,file2.txt
+open_app,Calculator
+modify_file,./new_dir1/file1.txt,hello world
+modify_file,./new_dir1/file3.txt,hello world
+delete_file,./new_dir1/file4.txt
+delete_file,./new_dir1/file2.txt
+network_connection,localhost,3000,./new_dir1/file1.txt
+modify_file,./new_dir1/file1.txt,good bye
+open_app,TextEdit
+network_connection,localhost,3000,./new_dir1/file1.txt
