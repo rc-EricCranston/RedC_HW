@@ -1,0 +1,3 @@
+create_file,./new_dir1/,file1.txt
+modify_file,./new_dir1/file3.txt,hello world
+delete_file,./new_dir1/file4.txt

@@ -65,3 +65,13 @@ Example:
 Example:
 > network_connection,localhost,3000,new_dir/file1.txt
 
+
+
+
+
+### Running via Docker
+#### Build a Docker image from your Dockerfile
+docker build -t my_app .
+
+#### Run your app in a Docker container
+docker run my_app
